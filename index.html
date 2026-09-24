@@ -477,5 +477,92 @@
 
 </div>
 
+    <!-- Q4 -->
+<div class="question-block">
+
+    <div class="question">
+        Q4. Explain the Concept of Transaction Management in a Database System.
+    </div>
+
+    <div class="section-title">
+        1. Meaning of Transaction Management
+    </div>
+
+    <p>
+        Transaction Management is the process of managing database transactions so that they are completed correctly, safely, and reliably.
+    </p>
+
+    <p>
+        A transaction is a single logical unit of work in a database. It follows an all-or-nothing approach.
+    </p>
+
+    <p>
+        <span class="point-name">Example:</span>
+    </p>
+
+    <p>
+        In a bank transfer of ₹5,000:
+    </p>
+
+    <ul>
+        <li>₹5,000 is debited from Account A.</li>
+        <li>₹5,000 is credited to Account B.</li>
+    </ul>
+
+    <p>
+        Both operations must be completed. If an error occurs, the transaction should be cancelled to avoid incorrect data.
+    </p>
+
+
+    <div class="section-title">
+        2. Diagram of Transaction States
+    </div>
+
+    <div class="diagram">
+        <img src="q4.png" alt="Transaction States Diagram">
+    </div>
+
+    <p>
+        States shown in the diagram:
+    </p>
+
+    <ul>
+        <li>Active: Transaction is being executed.</li>
+        <li>Committed: Transaction completed successfully and changes become permanent.</li>
+        <li>Failed: An error occurs during the transaction.</li>
+        <li>Aborted: Failed transaction is cancelled and its changes are undone.</li>
+    </ul>
+
+
+    <div class="section-title">
+        3. ACID Properties
+    </div>
+
+    <p>
+        A – Atomicity:<br>
+        All operations of a transaction are completed, or none are completed.
+    </p>
+
+    <p>
+        C – Consistency:<br>
+        The database remains in a valid state before and after the transaction.
+    </p>
+
+    <p>
+        I – Isolation:<br>
+        Multiple transactions can run at the same time without interfering with each other.
+    </p>
+
+    <p>
+        D – Durability:<br>
+        Once a transaction is committed, its changes remain permanent even after a system failure.
+    </p>
+
+    <p>
+        ACID properties help maintain the integrity and consistency of the database.
+    </p>
+
+</div>
+
 </body>
 </html>
