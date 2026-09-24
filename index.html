@@ -4,351 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Database System - Q1</title>
+    <title>Q1 - Database System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            background: #f2f2f2;
-            color: #222;
-            font-family: "Georgia", "Times New Roman", serif;
-            line-height: 1.65;
+            padding: 30px 15px;
+            background: #dedede;
+            color: #0645ad;
+            font-family: "Kalam", cursive;
+            font-size: 18px;
+            line-height: 1.75;
         }
 
-        .page {
+        /* Exam paper */
+        .paper {
+            width: 100%;
             max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 55px 65px;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            margin: auto;
+            padding: 55px 70px 70px 75px;
+
+            background-color: #fffef8;
+
+            /* Light ruled paper */
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    transparent 33px,
+                    rgba(75, 120, 175, 0.13) 34px
+                );
+
+            background-size: 100% 34px;
+
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+
+            min-height: 100vh;
         }
 
-        /* QUESTION */
 
+        /* Question heading */
         .question {
-            border-bottom: 2px solid #222;
-            padding-bottom: 18px;
-            margin-bottom: 30px;
-        }
-
-        .question-label {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        h1 {
             font-size: 25px;
-            line-height: 1.35;
-            margin: 0;
-            color: #111;
+            line-height: 1.5;
+
+            margin-bottom: 35px;
+
+            /* No bold - emphasis through underline */
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 5px;
         }
 
-        /* HEADINGS */
 
-        h2 {
-            font-family: Arial, sans-serif;
-            font-size: 20px;
+        /* Section headings */
+        .section-title {
+            font-size: 22px;
+
             margin-top: 32px;
-            margin-bottom: 14px;
-            color: #111;
+            margin-bottom: 10px;
+
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
         }
+
 
         p {
             margin: 8px 0;
-            font-size: 17px;
         }
 
-        strong {
-            color: #111;
+
+        /* Important words */
+        .important {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
-        /* DEFINITION */
 
-        .definition-box {
-            background: #f7f7f7;
-            border-left: 4px solid #333;
-            padding: 16px 20px;
-            margin-top: 10px;
-        }
-
-        /* DATABASE SYSTEM FORMULA */
-
+        /* Formula */
         .formula {
-            margin: 18px 0;
-            padding: 13px 15px;
+            margin: 12px 0 20px 18px;
 
-            background: #eeeeee;
-            border: 1px solid #d2d2d2;
+            font-size: 19px;
+
+            /* Slight spacing instead of bold */
+            letter-spacing: 0.2px;
+        }
+
+
+        /* Diagram */
+        .diagram {
+            margin: 20px auto 18px;
 
             text-align: center;
 
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 8px 0;
         }
 
-        /* DIAGRAM */
-
-        .diagram-container {
-            margin: 20px 0;
-            padding: 20px;
-
-            border: 1px solid #ccc;
-            background: #fafafa;
-
-            text-align: center;
-        }
-
-        .diagram-container img {
+        .diagram img {
             display: block;
 
             width: 100%;
             max-width: 650px;
-
             height: auto;
 
-            margin: 0 auto;
+            margin: auto;
         }
 
-        .diagram-explanation {
-            margin-top: 20px;
-            text-align: left;
+
+        /* Ordered list */
+        ol {
+            margin-top: 8px;
+            padding-left: 34px;
         }
 
-        /* PURPOSE LIST */
+        ol li {
+            padding-left: 6px;
+            margin-bottom: 7px;
+        }
 
+
+        /* Unordered list */
         ul {
             margin-top: 8px;
-            padding-left: 28px;
+            padding-left: 34px;
         }
 
-        li {
-            margin: 8px 0;
-            font-size: 17px;
+        ul li {
+            margin-bottom: 5px;
         }
 
-        li strong {
-            margin-right: 4px;
+
+        /* Point heading without bold */
+        .point-name {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
-        /* EXAMPLE */
 
-        .example {
-            margin-top: 12px;
-            padding: 17px 20px;
+        /* Example heading */
+        .example-title {
+            font-size: 20px;
 
-            border: 1px solid #ccc;
-            background: #fafafa;
-        }
-
-        /* MEMORY BOX */
-
-        .memory {
-            margin-top: 30px;
-
-            padding: 18px 20px;
-
-            border: 2px solid #333;
-
-            text-align: center;
-        }
-
-        .memory-title {
-            font-family: Arial, sans-serif;
-            font-weight: bold;
+            margin-top: 25px;
             margin-bottom: 8px;
+
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
         }
 
-        .memory-text {
-            font-weight: bold;
-            font-size: 17px;
-        }
 
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            .page {
-                margin: 0;
-                padding: 30px 22px;
-                box-shadow: none;
-            }
-
-            h1 {
-                font-size: 21px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            p,
-            li {
-                font-size: 16px;
-            }
-
-            .diagram-container {
-                padding: 10px;
-            }
-        }
-
-        /* PRINT */
-
+        /* Print */
         @media print {
 
             body {
                 background: white;
+                padding: 0;
             }
 
-            .page {
-                margin: 0;
+            .paper {
                 max-width: none;
-                padding: 25px 40px;
+                min-height: auto;
+
+                padding: 35px 55px;
+
                 box-shadow: none;
             }
+        }
 
-            .diagram-container,
-            .definition-box,
-            .example,
-            .memory {
-                break-inside: avoid;
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 0;
+                font-size: 17px;
+            }
+
+            .paper {
+                padding: 35px 25px 50px 30px;
+            }
+
+            .question {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 20px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-<div class="page">
+<div class="paper">
+
 
     <!-- QUESTION -->
 
     <div class="question">
-
-        <div class="question-label">
-            Question 1
-        </div>
-
-        <h1>
-            What is a Database System? Explain its Purpose and Importance in Modern Organizations.
-        </h1>
-
+        Q1. What is a Database System? Explain its Purpose and Importance in Modern Organizations.
     </div>
+
 
 
     <!-- 1. DEFINITION -->
 
-    <h2>
-        1. Definition
-    </h2>
-
-    <div class="definition-box">
-
-        <p>
-            A <strong>database</strong> is an organized collection of related data stored electronically.
-        </p>
-
-        <p>
-            A <strong>Database Management System (DBMS)</strong> is software used to create, store, retrieve, update, and manage data in a database.
-        </p>
-
+    <div class="section-title">
+        1. Definition of Database System
     </div>
 
-    <div class="formula">
+    <p>
+        A database is an organized collection of related data stored electronically.
+    </p>
+
+    <p>
+        A Database Management System (DBMS) is software used to create, store, retrieve, update, and manage data in a database.
+    </p>
+
+    <p>
+        Therefore:
+    </p>
+
+    <p class="formula">
         Database System = Database + DBMS + Application Programs + Users
-    </div>
+    </p>
+
 
 
     <!-- 2. DIAGRAM -->
 
-    <h2>
-        2. Diagram
-    </h2>
+    <div class="section-title">
+        2. Diagram of Database System
+    </div>
 
-    <div class="diagram-container">
+    <div class="diagram">
 
         <img
-            src="d1.png"
+            src="q1.png"
             alt="Database System Diagram"
         >
 
-        <p class="diagram-explanation">
-            <strong>Diagram explanation:</strong>
-            Users use application programs. The application communicates with the DBMS, and the DBMS manages the data stored in the database.
-        </p>
-
     </div>
+
+    <p>
+        Users use application programs. The application communicates with the DBMS, and the DBMS manages the data stored in the database.
+    </p>
+
 
 
     <!-- 3. PURPOSE -->
 
-    <h2>
+    <div class="section-title">
         3. Purpose of a Database System
-    </h2>
+    </div>
 
-    <p>
-        A database system is used to:
-    </p>
-
-    <ul>
+    <ol>
 
         <li>
-            <strong>Store data –</strong>
-            Keeps large amounts of data in an organized way.
+            <span class="point-name">Store data</span> – Keeps large amounts of data in an organized way.
         </li>
 
         <li>
-            <strong>Retrieve data easily –</strong>
-            Allows users to quickly search for required information.
+            <span class="point-name">Retrieve data easily</span> – Allows users to quickly search for required information.
         </li>
 
         <li>
-            <strong>Update data –</strong>
-            Makes adding, modifying, and deleting data easy.
+            <span class="point-name">Update data</span> – Makes adding, modifying, and deleting data easy.
         </li>
 
         <li>
-            <strong>Reduce redundancy –</strong>
-            Avoids unnecessary duplication of data.
+            <span class="point-name">Reduce redundancy</span> – Avoids unnecessary duplication of data.
         </li>
 
         <li>
-            <strong>Maintain consistency –</strong>
-            Keeps data accurate and consistent.
+            <span class="point-name">Maintain consistency</span> – Keeps data accurate and consistent.
         </li>
 
         <li>
-            <strong>Provide security –</strong>
-            Controls who can access or modify data.
+            <span class="point-name">Provide security</span> – Controls who can access or modify data.
         </li>
 
         <li>
-            <strong>Handle multiple users –</strong>
-            Allows many users to access data safely at the same time.
+            <span class="point-name">Handle multiple users</span> – Allows many users to access data safely at the same time.
         </li>
 
         <li>
-            <strong>Maintain data integrity –</strong>
-            Enforces rules and constraints on stored data.
+            <span class="point-name">Maintain data integrity</span> – Enforces rules and constraints on stored data.
         </li>
 
-    </ul>
+    </ol>
+
 
 
     <!-- 4. IMPORTANCE -->
 
-    <h2>
+    <div class="section-title">
         4. Importance in Modern Organizations
-    </h2>
+    </div>
 
     <p>
         Database systems are important because organizations deal with large amounts of data every day.
@@ -375,34 +340,17 @@
     </ul>
 
 
+
     <!-- EXAMPLE -->
 
-    <h2>
+    <div class="example-title">
         Example
-    </h2>
-
-    <div class="example">
-
-        <p>
-            In a college database system, information about students, courses, faculty, and marks can be stored in the database. The college portal can use the DBMS to add a new student, update marks, or search for students who scored above 90%.
-        </p>
-
     </div>
 
+    <p>
+        In a college database system, information about students, courses, faculty, and marks can be stored in the database. The college portal can use the DBMS to add a new student, update marks, or search for students who scored above 90%.
+    </p>
 
-    <!-- EASY WAY TO REMEMBER -->
-
-    <div class="memory">
-
-        <div class="memory-title">
-            Easy way to remember
-        </div>
-
-        <div class="memory-text">
-            Database System = Store + Retrieve + Update + Secure + Share + Maintain
-        </div>
-
-    </div>
 
 </div>
 
