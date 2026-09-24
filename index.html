@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Q1 - Database System</title>
+    <title>DBMS - Questions 1 and 2</title>
 
+    <!-- Handwritten-style font -->
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
 
     <style>
@@ -18,22 +21,30 @@
             margin: 0;
             padding: 30px 15px;
             background: #dedede;
+
             color: #0645ad;
+
             font-family: "Kalam", cursive;
             font-size: 18px;
             line-height: 1.75;
         }
 
-        /* Exam paper */
+
+        /* =====================================================
+           EXAM PAPER
+        ===================================================== */
+
         .paper {
             width: 100%;
             max-width: 900px;
+
             margin: auto;
+
             padding: 55px 70px 70px 75px;
 
             background-color: #fffef8;
 
-            /* Light ruled paper */
+            /* Light ruled-paper effect */
             background-image:
                 linear-gradient(
                     to bottom,
@@ -43,31 +54,36 @@
 
             background-size: 100% 34px;
 
-            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 
             min-height: 100vh;
         }
 
 
-        /* Question heading */
+        /* =====================================================
+           QUESTION HEADING
+        ===================================================== */
+
         .question {
             font-size: 25px;
             line-height: 1.5;
 
-            margin-bottom: 35px;
+            margin-bottom: 30px;
 
-            /* No bold - emphasis through underline */
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 5px;
         }
 
 
-        /* Section headings */
+        /* =====================================================
+           SECTION HEADINGS
+        ===================================================== */
+
         .section-title {
             font-size: 22px;
 
-            margin-top: 32px;
+            margin-top: 30px;
             margin-bottom: 10px;
 
             text-decoration: underline;
@@ -76,12 +92,19 @@
         }
 
 
+        /* =====================================================
+           NORMAL PARAGRAPHS
+        ===================================================== */
+
         p {
             margin: 8px 0;
         }
 
 
-        /* Important words */
+        /* =====================================================
+           IMPORTANT TERMS
+        ===================================================== */
+
         .important {
             text-decoration: underline;
             text-decoration-thickness: 1px;
@@ -89,22 +112,45 @@
         }
 
 
-        /* Formula */
+        /* =====================================================
+           FORMULA / IMPORTANT LINE
+        ===================================================== */
+
         .formula {
             margin: 12px 0 20px 18px;
 
             font-size: 19px;
 
-            /* Slight spacing instead of bold */
             letter-spacing: 0.2px;
         }
 
 
-        /* Diagram */
+        /* =====================================================
+           DIAGRAM HEADING
+        ===================================================== */
+
+        .diagram-title {
+            font-size: 21px;
+
+            margin-top: 18px;
+            margin-bottom: 8px;
+
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+
+        /* =====================================================
+           DIAGRAM
+        ===================================================== */
+
         .diagram {
-            margin: 20px auto 18px;
+            width: 100%;
 
             text-align: center;
+
+            margin: 15px auto 22px;
 
             padding: 8px 0;
         }
@@ -113,14 +159,18 @@
             display: block;
 
             width: 100%;
-            max-width: 650px;
+            max-width: 700px;
+
             height: auto;
 
             margin: auto;
         }
 
 
-        /* Ordered list */
+        /* =====================================================
+           ORDERED LIST
+        ===================================================== */
+
         ol {
             margin-top: 8px;
             padding-left: 34px;
@@ -132,9 +182,12 @@
         }
 
 
-        /* Unordered list */
+        /* =====================================================
+           BULLET LIST
+        ===================================================== */
+
         ul {
-            margin-top: 8px;
+            margin-top: 6px;
             padding-left: 34px;
         }
 
@@ -143,7 +196,10 @@
         }
 
 
-        /* Point heading without bold */
+        /* =====================================================
+           POINT NAME
+        ===================================================== */
+
         .point-name {
             text-decoration: underline;
             text-decoration-thickness: 1px;
@@ -151,20 +207,41 @@
         }
 
 
-        /* Example heading */
-        .example-title {
-            font-size: 20px;
+        /* =====================================================
+           RELATIONSHIP NAME
+        ===================================================== */
 
-            margin-top: 25px;
-            margin-bottom: 8px;
+        .relationship {
+            margin-top: 12px;
+            margin-bottom: 4px;
 
             text-decoration: underline;
             text-decoration-thickness: 1px;
-            text-underline-offset: 4px;
+            text-underline-offset: 3px;
         }
 
 
-        /* Print */
+        /* =====================================================
+           SPACE BETWEEN QUESTIONS
+        ===================================================== */
+
+        .question-block {
+            padding-bottom: 45px;
+            margin-bottom: 45px;
+
+            border-bottom: 1px solid rgba(75, 120, 175, 0.25);
+        }
+
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           PRINT
+        ===================================================== */
+
         @media print {
 
             body {
@@ -180,10 +257,17 @@
 
                 box-shadow: none;
             }
+
+            .question-block {
+                border-bottom: none;
+            }
         }
 
 
-        /* Mobile */
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
         @media (max-width: 600px) {
 
             body {
@@ -202,157 +286,365 @@
             .section-title {
                 font-size: 20px;
             }
+
+            .diagram-title {
+                font-size: 19px;
+            }
         }
 
     </style>
+
 </head>
 
+
 <body>
+
 
 <div class="paper">
 
 
-    <!-- QUESTION -->
+    <!-- =====================================================
+         QUESTION 1
+    ===================================================== -->
 
-    <div class="question">
-        Q1. What is a Database System? Explain its Purpose and Importance in Modern Organizations.
+    <div class="question-block">
+
+
+        <div class="question">
+            Q1. What is a Database System? Explain its Purpose and Importance in Modern Organizations.
+        </div>
+
+
+        <!-- 1. DEFINITION -->
+
+        <div class="section-title">
+            1. Definition of Database System
+        </div>
+
+        <p>
+            A database is an organized collection of related data stored electronically.
+        </p>
+
+        <p>
+            A Database Management System (DBMS) is software used to create, store, retrieve, update, and manage data in a database.
+        </p>
+
+        <p>
+            Therefore:
+        </p>
+
+        <p class="formula">
+            Database System = Database + DBMS + Application Programs + Users
+        </p>
+
+
+        <!-- 2. DIAGRAM -->
+
+        <div class="section-title">
+            2. Diagram of Database System
+        </div>
+
+        <div class="diagram">
+
+            <img
+                src="q1.png"
+                alt="Database System Diagram"
+            >
+
+        </div>
+
+        <p>
+            Users use application programs. The application communicates with the DBMS, and the DBMS manages the data stored in the database.
+        </p>
+
+
+        <!-- 3. PURPOSE -->
+
+        <div class="section-title">
+            3. Purpose of a Database System
+        </div>
+
+        <ol>
+
+            <li>
+                <span class="point-name">Store data</span> – Keeps large amounts of data in an organized way.
+            </li>
+
+            <li>
+                <span class="point-name">Retrieve data easily</span> – Allows users to quickly search for required information.
+            </li>
+
+            <li>
+                <span class="point-name">Update data</span> – Makes adding, modifying, and deleting data easy.
+            </li>
+
+            <li>
+                <span class="point-name">Reduce redundancy</span> – Avoids unnecessary duplication of data.
+            </li>
+
+            <li>
+                <span class="point-name">Maintain consistency</span> – Keeps data accurate and consistent.
+            </li>
+
+            <li>
+                <span class="point-name">Provide security</span> – Controls who can access or modify data.
+            </li>
+
+            <li>
+                <span class="point-name">Handle multiple users</span> – Allows many users to access data safely at the same time.
+            </li>
+
+            <li>
+                <span class="point-name">Maintain data integrity</span> – Enforces rules and constraints on stored data.
+            </li>
+
+        </ol>
+
+
+        <!-- 4. IMPORTANCE -->
+
+        <div class="section-title">
+            4. Importance in Modern Organizations
+        </div>
+
+        <p>
+            Database systems are important because organizations deal with large amounts of data every day.
+        </p>
+
+        <p>
+            They help organizations to:
+        </p>
+
+        <ul>
+
+            <li>make data available quickly,</li>
+
+            <li>manage data efficiently,</li>
+
+            <li>protect important information,</li>
+
+            <li>reduce errors and duplication,</li>
+
+            <li>support multiple users,</li>
+
+            <li>and maintain reliable and consistent data.</li>
+
+        </ul>
+
+
+        <!-- EXAMPLE -->
+
+        <div class="section-title">
+            Example
+        </div>
+
+        <p>
+            In a college database system, information about students, courses, faculty, and marks can be stored in the database. The college portal can use the DBMS to add a new student, update marks, or search for students who scored above 90%.
+        </p>
+
+
     </div>
 
 
 
-    <!-- 1. DEFINITION -->
+    <!-- =====================================================
+         QUESTION 2
+    ===================================================== -->
 
-    <div class="section-title">
-        1. Definition of Database System
+    <div class="question-block">
+
+
+        <div class="question">
+            Q2. Design an ER Diagram for a Library Management System, identifying entities, attributes, keys, and relationships.
+        </div>
+
+
+        <!-- INTRODUCTION -->
+
+        <p>
+            An ER (Entity-Relationship) Diagram is a graphical representation of the structure of a database. It shows entities, their attributes, keys, and relationships between entities.
+        </p>
+
+
+        <!-- DIAGRAM -->
+
+        <div class="diagram-title">
+            ER Diagram of Library Management System:
+        </div>
+
+        <div class="diagram">
+
+            <img
+                src="q2.png"
+                alt="ER Diagram of Library Management System"
+            >
+
+        </div>
+
+
+        <!-- 1. ENTITY -->
+
+        <div class="section-title">
+            1. Entity
+        </div>
+
+        <p>
+            An entity is a real-world object about which data is stored in a database.
+        </p>
+
+        <p>
+            In the Library Management System, the main entities are:
+        </p>
+
+        <ul>
+
+            <li>
+                <span class="point-name">BOOK</span> – represents books in the library.
+            </li>
+
+            <li>
+                <span class="point-name">MEMBER</span> – represents people who borrow books.
+            </li>
+
+            <li>
+                <span class="point-name">PUBLISHER</span> – represents publishers of books.
+            </li>
+
+        </ul>
+
+        <p>
+            In an ER diagram, an entity is represented by a rectangle.
+        </p>
+
+
+        <!-- 2. ATTRIBUTES -->
+
+        <div class="section-title">
+            2. Attributes
+        </div>
+
+        <p>
+            An attribute is a property or characteristic that describes an entity.
+        </p>
+
+        <ul>
+
+            <li>
+                <span class="point-name">BOOK:</span> Book_ID, Title, Author, Price
+            </li>
+
+            <li>
+                <span class="point-name">MEMBER:</span> Member_ID, Name, Phone, Address
+            </li>
+
+            <li>
+                <span class="point-name">PUBLISHER:</span> Pub_ID, Name, Address
+            </li>
+
+        </ul>
+
+        <p>
+            In an ER diagram, an attribute is represented by an oval.
+        </p>
+
+
+        <!-- 3. KEYS -->
+
+        <div class="section-title">
+            3. Keys
+        </div>
+
+        <p>
+            A key is an attribute that uniquely identifies each entity record.
+        </p>
+
+        <ul>
+
+            <li>
+                <span class="point-name">Book_ID</span> → Primary Key of BOOK
+            </li>
+
+            <li>
+                <span class="point-name">Member_ID</span> → Primary Key of MEMBER
+            </li>
+
+            <li>
+                <span class="point-name">Pub_ID</span> → Primary Key of PUBLISHER
+            </li>
+
+        </ul>
+
+        <p>
+            In an ER diagram, key is shown by underlining the attribute name.
+        </p>
+
+
+        <!-- 4. RELATIONSHIPS -->
+
+        <div class="section-title">
+            4. Relationships
+        </div>
+
+        <p>
+            A relationship shows how two or more entities are connected.
+        </p>
+
+
+        <div class="relationship">
+            BORROWS
+        </div>
+
+        <ul>
+
+            <li>
+                Connects MEMBER and BOOK.
+            </li>
+
+            <li>
+                A member can borrow many books, and a book can be borrowed by many members over time.
+            </li>
+
+            <li>
+                Cardinality: Many-to-Many (M:N)
+            </li>
+
+            <li>
+                Relationship attributes: Issue_Date, Return_Date
+            </li>
+
+        </ul>
+
+
+        <div class="relationship">
+            PUBLISHED_BY
+        </div>
+
+        <ul>
+
+            <li>
+                Connects BOOK and PUBLISHER.
+            </li>
+
+            <li>
+                One publisher can publish many books, while each book is published by one publisher.
+            </li>
+
+            <li>
+                Cardinality: Many-to-One (N:1)
+            </li>
+
+        </ul>
+
+        <p>
+            In an ER diagram, a relationship is represented by a diamond.
+        </p>
+
+
     </div>
-
-    <p>
-        A database is an organized collection of related data stored electronically.
-    </p>
-
-    <p>
-        A Database Management System (DBMS) is software used to create, store, retrieve, update, and manage data in a database.
-    </p>
-
-    <p>
-        Therefore:
-    </p>
-
-    <p class="formula">
-        Database System = Database + DBMS + Application Programs + Users
-    </p>
-
-
-
-    <!-- 2. DIAGRAM -->
-
-    <div class="section-title">
-        2. Diagram of Database System
-    </div>
-
-    <div class="diagram">
-
-        <img
-            src="q1.png"
-            alt="Database System Diagram"
-        >
-
-    </div>
-
-    <p>
-        Users use application programs. The application communicates with the DBMS, and the DBMS manages the data stored in the database.
-    </p>
-
-
-
-    <!-- 3. PURPOSE -->
-
-    <div class="section-title">
-        3. Purpose of a Database System
-    </div>
-
-    <ol>
-
-        <li>
-            <span class="point-name">Store data</span> – Keeps large amounts of data in an organized way.
-        </li>
-
-        <li>
-            <span class="point-name">Retrieve data easily</span> – Allows users to quickly search for required information.
-        </li>
-
-        <li>
-            <span class="point-name">Update data</span> – Makes adding, modifying, and deleting data easy.
-        </li>
-
-        <li>
-            <span class="point-name">Reduce redundancy</span> – Avoids unnecessary duplication of data.
-        </li>
-
-        <li>
-            <span class="point-name">Maintain consistency</span> – Keeps data accurate and consistent.
-        </li>
-
-        <li>
-            <span class="point-name">Provide security</span> – Controls who can access or modify data.
-        </li>
-
-        <li>
-            <span class="point-name">Handle multiple users</span> – Allows many users to access data safely at the same time.
-        </li>
-
-        <li>
-            <span class="point-name">Maintain data integrity</span> – Enforces rules and constraints on stored data.
-        </li>
-
-    </ol>
-
-
-
-    <!-- 4. IMPORTANCE -->
-
-    <div class="section-title">
-        4. Importance in Modern Organizations
-    </div>
-
-    <p>
-        Database systems are important because organizations deal with large amounts of data every day.
-    </p>
-
-    <p>
-        They help organizations to:
-    </p>
-
-    <ul>
-
-        <li>make data available quickly,</li>
-
-        <li>manage data efficiently,</li>
-
-        <li>protect important information,</li>
-
-        <li>reduce errors and duplication,</li>
-
-        <li>support multiple users,</li>
-
-        <li>and maintain reliable and consistent data.</li>
-
-    </ul>
-
-
-
-    <!-- EXAMPLE -->
-
-    <div class="example-title">
-        Example
-    </div>
-
-    <p>
-        In a college database system, information about students, courses, faculty, and marks can be stored in the database. The college portal can use the DBMS to add a new student, update marks, or search for students who scored above 90%.
-    </p>
 
 
 </div>
+
 
 </body>
 </html>
