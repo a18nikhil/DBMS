@@ -279,114 +279,118 @@
     </div>
 
 
-    <!-- Q2 -->
-    <div class="question-block">
+<!-- Q2 -->
+<div class="question-block">
 
-        <div class="question">
-            Q2. Design an ER Diagram for a Library Management System, identifying entities, attributes, keys, and relationships.
-        </div>
-
-        <p>
-            An ER (Entity-Relationship) Diagram is a graphical representation of the structure
-            of a database. It shows entities, their attributes, keys, and relationships between entities.
-        </p>
-
-        <div class="diagram">
-            <img src="q2.png" alt="ER Diagram of Library Management System">
-        </div>
-
-        <div class="section-title">
-            1. Entity
-        </div>
-
-        <p>
-            An entity is a real-world object about which data is stored in a database.
-        </p>
-
-        <p>
-            In the Library Management System, the main entities are:
-        </p>
-
-        <ul>
-            <li>BOOK – represents books in the library.</li>
-            <li>MEMBER – represents people who borrow books.</li>
-            <li>PUBLISHER – represents publishers of books.</li>
-        </ul>
-
-        <p>
-            In an ER diagram, an entity is represented by a rectangle.
-        </p>
-
-        <div class="section-title">
-            2. Attributes
-        </div>
-
-        <p>
-            An attribute is a property or characteristic that describes an entity.
-        </p>
-
-        <ul>
-            <li>BOOK: Book_ID, Title, Author, Price</li>
-            <li>MEMBER: Member_ID, Name, Phone, Address</li>
-            <li>PUBLISHER: Pub_ID, Name, Address</li>
-        </ul>
-
-        <p>
-            In an ER diagram, an attribute is represented by an oval.
-        </p>
-
-        <div class="section-title">
-            3. Keys
-        </div>
-
-        <p>
-            A key is an attribute that uniquely identifies each entity record.
-        </p>
-
-        <ul>
-            <li>Book_ID → Primary Key of BOOK</li>
-            <li>Member_ID → Primary Key of MEMBER</li>
-            <li>Pub_ID → Primary Key of PUBLISHER</li>
-        </ul>
-
-        <p>
-            In an ER diagram, key is shown by underlining the attribute name.
-        </p>
-
-        <div class="section-title">
-            4. Relationships
-        </div>
-
-        <p>
-            A relationship shows how two or more entities are connected.
-        </p>
-
-        <p>
-            <span class="relationship">BORROWS</span>
-        </p>
-
-        <ul>
-            <li>Connects MEMBER and BOOK.</li>
-            <li>A member can borrow many books, and a book can be borrowed by many members over time.</li>
-            <li>Cardinality: Many-to-Many (M:N)</li>
-            <li>Relationship attributes: Issue_Date, Return_Date</li>
-        </ul>
-
-        <p>
-            <span class="relationship">PUBLISHED_BY</span>
-        </p>
-
-        <ul>
-            <li>Connects BOOK and PUBLISHER.</li>
-            <li>One publisher can publish many books, while each book is published by one publisher.</li>
-            <li>Cardinality: Many-to-One (N:1)</li>
-        </ul>
-
-        <p>
-            In an ER diagram, a relationship is represented by a diamond.
-        </p>
-
+    <div class="question">
+        Q2. Design an ER Diagram for a Library Management System, identifying entities, attributes, keys, and relationships.
     </div>
+
+    <p>
+        An ER (Entity-Relationship) Diagram is a graphical representation of the structure
+        of a database. It shows entities, their attributes, keys, and relationships between entities.
+    </p>
+
+    <p>
+        <span class="point-name">ER Diagram of Library Management System:</span>
+    </p>
+
+    <div class="diagram">
+        <img src="q2.png" alt="ER Diagram of Library Management System">
+    </div>
+
+    <div class="section-title">
+        1. Entity
+    </div>
+
+    <p>
+        An entity is a real-world object about which data is stored in a database.
+    </p>
+
+    <p>
+        In the Library Management System, the main entities are:
+    </p>
+
+    <ul>
+        <li>BOOK – represents books in the library.</li>
+        <li>MEMBER – represents people who borrow books.</li>
+        <li>PUBLISHER – represents publishers of books.</li>
+    </ul>
+
+    <p>
+        In an ER diagram, an entity is represented by a rectangle.
+    </p>
+
+    <div class="section-title">
+        2. Attributes
+    </div>
+
+    <p>
+        An attribute is a property or characteristic that describes an entity.
+    </p>
+
+    <ul>
+        <li>BOOK: Book_ID, Title, Author, Price</li>
+        <li>MEMBER: Member_ID, Name, Phone, Address</li>
+        <li>PUBLISHER: Pub_ID, Name, Address</li>
+    </ul>
+
+    <p>
+        In an ER diagram, an attribute is represented by an oval.
+    </p>
+
+    <div class="section-title">
+        3. Keys
+    </div>
+
+    <p>
+        A key is an attribute that uniquely identifies each entity record.
+    </p>
+
+    <ul>
+        <li>Book_ID → Primary Key of BOOK</li>
+        <li>Member_ID → Primary Key of MEMBER</li>
+        <li>Pub_ID → Primary Key of PUBLISHER</li>
+    </ul>
+
+    <p>
+        In an ER diagram, key is shown by underlining the attribute name.
+    </p>
+
+    <div class="section-title">
+        4. Relationships
+    </div>
+
+    <p>
+        A relationship shows how two or more entities are connected.
+    </p>
+
+    <p>
+        <span class="relationship">BORROWS</span>
+    </p>
+
+    <ul>
+        <li>Connects MEMBER and BOOK.</li>
+        <li>A member can borrow many books, and a book can be borrowed by many members over time.</li>
+        <li>Cardinality: Many-to-Many (M:N)</li>
+        <li>Relationship attributes: Issue_Date, Return_Date</li>
+    </ul>
+
+    <p>
+        <span class="relationship">PUBLISHED_BY</span>
+    </p>
+
+    <ul>
+        <li>Connects BOOK and PUBLISHER.</li>
+        <li>One publisher can publish many books, while each book is published by one publisher.</li>
+        <li>Cardinality: Many-to-One (N:1)</li>
+    </ul>
+
+    <p>
+        In an ER diagram, a relationship is represented by a diamond.
+    </p>
+
+</div>
 
 
 <!-- Q3 -->
@@ -564,5 +568,83 @@
 
 </div>
 
+<!-- Q5 -->
+<div class="question-block">
+
+    <div class="question">
+        Q5. Discuss the Concept of "View of Data" in a Database System with the Help of Three-Level Architecture.
+    </div>
+
+    <p>
+        View of Data means showing database information at different levels of abstraction.
+        It hides unnecessary details and allows users to see only the data they need.
+    </p>
+
+    <p>
+        <span class="point-name">Three levels of Data Abstraction (ANSI/SPARC):</span>
+    </p>
+
+    <div class="diagram">
+        <img src="q5.png" alt="Three-Level Data Abstraction Architecture">
+    </div>
+
+    <div class="section-title">
+        1. Levels of Data Abstraction
+    </div>
+
+    <p>
+        <span class="point-name">1. External Level (View Level)</span>
+    </p>
+
+    <ul>
+        <li>Highest level of abstraction.</li>
+        <li>Shows only the data required by a particular user or application.</li>
+        <li>Different users can have different views.</li>
+        <li>Example: A student sees marks, while an administrator sees student and fee details.</li>
+    </ul>
+
+    <p>
+        <span class="point-name">2. Conceptual Level (Logical Level)</span>
+    </p>
+
+    <ul>
+        <li>Describes the complete logical structure of the database.</li>
+        <li>Shows what data is stored and the relationships between data.</li>
+        <li>It does not describe how data is physically stored.</li>
+    </ul>
+
+    <p>
+        <span class="point-name">3. Internal Level (Physical Level)</span>
+    </p>
+
+    <ul>
+        <li>Lowest level of abstraction.</li>
+        <li>Describes how data is actually stored in the computer.</li>
+        <li>Includes files, indexes, pointers, and storage structures.</li>
+    </ul>
+
+    <div class="section-title">
+        2. Schema and Instance
+    </div>
+
+    <ul>
+        <li>Schema: Overall logical design or structure of the database. It changes rarely.</li>
+        <li>Instance: Actual data stored in the database at a particular moment. It changes frequently.</li>
+    </ul>
+
+    <div class="section-title">
+        3. Importance of Three-Level Architecture
+    </div>
+
+    <ul>
+        <li>Hides unnecessary database details.</li>
+        <li>Provides different views for different users.</li>
+        <li>Makes database management easier.</li>
+        <li>Provides data independence.</li>
+        <li>Changes at one level can be made with less effect on other levels.</li>
+    </ul>
+
+</div>
+    
 </body>
 </html>
