@@ -1,935 +1,765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DBMS Exam Notes</title>
+  <title>DBMS Study Notes</title>
 
-    <!-- Handwritten-style font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
+  <style>
 
-        * {
-            box-sizing: border-box;
-        }
+    /* ==================== MAIN PAGE DESIGN ==================== */
 
-        body {
-            margin: 0;
-            padding: 30px 0;
-            background: #e5e5e5;
-            color: #0645ad;
-            font-family: "Kalam", cursive;
-            font-size: 21px;
-            line-height: 1.8;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
+    body {
+      margin: 0;
+      padding: 30px 0;
+      background: #e5e5e5;
+      color: #0645ad;
+      font-family: "Kalam", cursive;
+      font-size: 21px;
+      line-height: 1.8;
+    }
 
-        /* Main exam-paper area */
+    .paper {
+      max-width: 950px;
+      margin: auto;
+      padding: 45px 65px 70px 65px;
+      background-color: #fffef9;
+      background-image: linear-gradient(
+        to bottom,
+        transparent 34px,
+        rgba(80, 130, 190, 0.15) 35px
+      );
+      background-size: 100% 35px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+    }
 
-        .paper {
-            max-width: 950px;
-            margin: auto;
-            padding: 45px 65px 70px 65px;
+    .question-block {
+      padding-bottom: 40px;
+      margin-bottom: 45px;
+      border-bottom: 1px solid rgba(70, 115, 175, 0.14);
+    }
 
-            background-color: #fffef9;
+    .question-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 
-            /* Light ruled-paper lines */
-            background-image:
-                linear-gradient(
-                    to bottom,
-                    transparent 34px,
-                    rgba(80, 130, 190, 0.15) 35px
-                );
+    .question {
+      font-size: 29px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      text-decoration: underline;
+    }
 
-            background-size: 100% 35px;
+    .section-title {
+      font-size: 25px;
+      line-height: 1.6;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
 
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-            border-radius: 2px;
-        }
+    p {
+      margin-top: 8px;
+      margin-bottom: 14px;
+    }
 
+    ol,
+    ul {
+      padding-left: 32px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+    }
 
-        /* Each question */
+    li {
+      margin-bottom: 12px;
+    }
 
-        .question-block {
-            padding-bottom: 40px;
-            margin-bottom: 45px;
-            border-bottom: 1px solid rgba(70, 115, 175, 0.14);
-        }
+    .point-name,
+    .relationship {
+      text-decoration: underline;
+    }
 
-        .question-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+    .diagram {
+      width: 100%;
+      text-align: center;
+      margin: 14px auto 24px;
+      padding: 5px 0;
+    }
 
+    .diagram img {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: auto;
+    }
 
-        /* Question heading */
+    /* ==================== MOBILE DESIGN ==================== */
 
-        .question {
-            font-size: 29px;
-            line-height: 1.55;
-            margin-bottom: 20px;
-            text-decoration: underline;
-        }
+    @media (max-width: 700px) {
 
+      body {
+        padding: 0;
+        font-size: 17px;
+        line-height: 1.8;
+      }
 
-        /* Section headings */
+      .paper {
+        width: 100%;
+        padding: 30px 25px 50px 25px;
+        box-shadow: none;
+      }
 
-        .section-title {
-            font-size: 25px;
-            line-height: 1.6;
-            margin-top: 22px;
-            margin-bottom: 10px;
-            text-decoration: underline;
-        }
+      .question {
+        font-size: 21px;
+        line-height: 1.55;
+      }
 
+      .section-title {
+        font-size: 19px;
+      }
 
-        /* Normal paragraphs */
+      ol,
+      ul {
+        padding-left: 26px;
+      }
+    }
 
-        p {
-            margin-top: 8px;
-            margin-bottom: 14px;
-        }
-
-
-        /* Lists */
-
-        ol,
-        ul {
-            padding-left: 32px;
-            margin-top: 8px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 12px;
-        }
-
-
-        /* Important point names */
-
-        .point-name {
-            text-decoration: underline;
-        }
-
-
-        /* Relationships */
-
-        .relationship {
-            text-decoration: underline;
-        }
-
-
-        /* Diagrams */
-
-        .diagram {
-            width: 100%;
-            text-align: center;
-            margin: 14px auto 24px;
-            padding: 5px 0;
-        }
-
-        .diagram img {
-            display: block;
-            width: 100%;
-            max-width: 720px;
-            height: auto;
-            margin: auto;
-        }
-
-
-        /* Formula / special text */
-
-        .formula {
-            font-size: 22px;
-            margin: 12px 0;
-        }
-
-
-        /* Diagram title */
-
-        .diagram-title {
-            font-size: 23px;
-            margin-top: 12px;
-            margin-bottom: 8px;
-            text-decoration: underline;
-        }
-
-
-        /* ==============================
-           Q7 COMPARISON TABLE
-           ============================== */
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 18px 0 10px 0;
-            font-size: 21px;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            border: 1.5px solid #0645ad;
-            padding: 10px 12px;
-            text-align: left;
-        }
-
-        .comparison-table th {
-            text-decoration: underline;
-        }
-
-
-        /* ==============================
-           MOBILE
-           ============================== */
-
-        @media (max-width: 700px) {
-
-            body {
-                padding: 0;
-                font-size: 17px;
-                line-height: 1.8;
-            }
-
-            .paper {
-                width: 100%;
-                padding: 30px 25px 50px 25px;
-                box-shadow: none;
-            }
-
-            .question {
-                font-size: 21px;
-                line-height: 1.55;
-            }
-
-            .section-title {
-                font-size: 19px;
-            }
-
-            .diagram-title {
-                font-size: 18px;
-            }
-
-            .formula {
-                font-size: 18px;
-            }
-
-            ol,
-            ul {
-                padding-left: 26px;
-            }
-
-            .comparison-table {
-                font-size: 16px;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 7px 8px;
-            }
-        }
-
-    </style>
+  </style>
 </head>
-
 
 <body>
 
-    <div class="paper">
+  <div class="paper">
 
-    <!-- Q1 -->
+
+    <!-- ==================== QUESTION 1 ==================== -->
+
     <div class="question-block">
 
-        <div class="question">
-            Q1. What is a Database System? Explain its Purpose and Importance in Modern Organizations.
-        </div>
+      <div class="question">
+        Q1. What is a Database System? Explain its Purpose and Importance in Modern Organizations.
+      </div>
 
-        <div class="section-title">
-            1. Definition of Database System
-        </div>
+      <div class="section-title">
+        1. Definition of Database System
+      </div>
 
-        <p>
-            A database is an organized collection of related data stored electronically.
-        </p>
+      <p>
+        A database is an organized collection of related data stored and accessed electronically.
+      </p>
 
-        <p>
-            A Database Management System (DBMS) is software used to create, store, retrieve,
-            update, and manage data in a database.
-        </p>
+      <p>
+        A Database Management System (DBMS) is software used to create, store, retrieve, update, and manage data in a database.
+      </p>
 
-        <div class="formula">
-            Database System = Database + DBMS + Application Programs + Users
-        </div>
+      <p>
+        Examples: MySQL, Oracle, PostgreSQL, SQL Server.
+      </p>
 
-        <div class="section-title">
-            2. Diagram of Database System
-        </div>
+      <p>
+        Database System = Database + DBMS + Application Programs + Users
+      </p>
 
-        <div class="diagram">
-            <img src="q1.png" alt="Database System Diagram">
-        </div>
+      <div class="section-title">
+        2. Diagram of Database System
+      </div>
 
-        <p>
-            Users use application programs. The application communicates with the DBMS,
-            and the DBMS manages the data stored in the database.
-        </p>
+      <div class="diagram">
+        <img src="q1.png" alt="Database System Diagram">
+      </div>
 
-        <div class="section-title">
-            3. Purpose of a Database System
-        </div>
+      <p>
+        Users use application programs. The application communicates with the DBMS, and the DBMS manages the data stored in the database.
+      </p>
 
-        <ol>
-            <li>
-                <span class="point-name">Store data</span> – Keeps large amounts of data in an organized way.
-            </li>
+      <div class="section-title">
+        3. Purpose of a Database System
+      </div>
 
-            <li>
-                <span class="point-name">Retrieve data easily</span> – Allows users to quickly search for required information.
-            </li>
+      <ul>
+        <li>Store data – Keeps large amounts of data in an organized way.</li>
+        <li>Retrieve data easily – Allows users to quickly search for required information.</li>
+        <li>Update data – Makes adding, modifying, and deleting data easy.</li>
+        <li>Reduce redundancy – Avoids unnecessary duplication of data.</li>
+        <li>Maintain consistency – Keeps data accurate and consistent.</li>
+        <li>Provide security – Controls who can access or modify data.</li>
+        <li>Handle multiple users – Allows many users to access data safely at the same time.</li>
+        <li>Maintain data integrity – Enforces rules and constraints on stored data.</li>
+      </ul>
 
-            <li>
-                <span class="point-name">Update data</span> – Makes adding, modifying, and deleting data easy.
-            </li>
+      <div class="section-title">
+        4. Importance in Modern Organizations
+      </div>
 
-            <li>
-                <span class="point-name">Reduce redundancy</span> – Avoids unnecessary duplication of data.
-            </li>
+      <p>
+        Database systems are important because organizations deal with large amounts of data every day.
+      </p>
 
-            <li>
-                <span class="point-name">Maintain consistency</span> – Keeps data accurate and consistent.
-            </li>
+      <p>
+        They help organizations to:
+      </p>
 
-            <li>
-                <span class="point-name">Provide security</span> – Controls who can access or modify data.
-            </li>
+      <ul>
+        <li>make data available quickly,</li>
+        <li>manage data efficiently,</li>
+        <li>protect important information,</li>
+        <li>reduce errors and duplication,</li>
+        <li>support multiple users,</li>
+        <li>and maintain reliable and consistent data.</li>
+      </ul>
 
-            <li>
-                <span class="point-name">Handle multiple users</span> – Allows many users to access data safely at the same time.
-            </li>
+      <p>
+        <span class="point-name">Example</span>
+      </p>
 
-            <li>
-                <span class="point-name">Maintain data integrity</span> – Enforces rules and constraints on stored data.
-            </li>
-        </ol>
-
-        <div class="section-title">
-            4. Importance in Modern Organizations
-        </div>
-
-        <p>
-            Database systems are important because organizations deal with large amounts of data every day.
-        </p>
-
-        <p>
-            They help organizations to:
-        </p>
-
-        <ul>
-            <li>make data available quickly,</li>
-            <li>manage data efficiently,</li>
-            <li>protect important information,</li>
-            <li>reduce errors and duplication,</li>
-            <li>support multiple users,</li>
-            <li>and maintain reliable and consistent data.</li>
-        </ul>
-
-        <p>
-            <span class="point-name">Example</span>
-        </p>
-
-        <p>
-            In a college database system, information about students, courses, faculty, and marks
-            can be stored in the database. The college portal can use the DBMS to add a new student,
-            update marks, or search for students who scored above 90%.
-        </p>
+      <p>
+        In a college database system, information about students, courses, faculty, and marks can be stored in the database. The college portal can use the DBMS to add a new student, update marks, or search for students who scored above 90%.
+      </p>
 
     </div>
 
 
-<!-- Q2 -->
-<div class="question-block">
+    <!-- ==================== QUESTION 2 ==================== -->
 
-    <div class="question">
+    <div class="question-block">
+
+      <div class="question">
         Q2. Design an ER Diagram for a Library Management System, identifying entities, attributes, keys, and relationships.
-    </div>
+      </div>
 
-    <p>
-        An ER (Entity-Relationship) Diagram is a graphical representation of the structure
-        of a database. It shows entities, their attributes, keys, and relationships between entities.
-    </p>
-
-    <p>
+      <p>
         <span class="point-name">ER Diagram of Library Management System:</span>
-    </p>
+      </p>
 
-    <div class="diagram">
+      <p>
+        An ER (Entity-Relationship) Diagram is a graphical representation of the structure of a database. It shows entities, their attributes, keys, and relationships between entities.
+      </p>
+
+      <div class="diagram">
         <img src="q2.png" alt="ER Diagram of Library Management System">
-    </div>
+      </div>
 
-    <div class="section-title">
+      <div class="section-title">
         1. Entity
-    </div>
+      </div>
 
-    <p>
+      <p>
         An entity is a real-world object about which data is stored in a database.
-    </p>
+      </p>
 
-    <p>
+      <p>
         In the Library Management System, the main entities are:
-    </p>
+      </p>
 
-    <ul>
-        <li>BOOK – represents books in the library.</li>
-        <li>MEMBER – represents people who borrow books.</li>
-        <li>PUBLISHER – represents publishers of books.</li>
-    </ul>
+      <ul>
+        <li><span class="point-name">BOOK</span> – represents books in the library.</li>
+        <li><span class="point-name">MEMBER</span> – represents people who borrow books.</li>
+        <li><span class="point-name">PUBLISHER</span> – represents publishers of books.</li>
+      </ul>
 
-    <p>
+      <p>
         In an ER diagram, an entity is represented by a rectangle.
-    </p>
+      </p>
 
-    <div class="section-title">
+      <div class="section-title">
         2. Attributes
-    </div>
+      </div>
 
-    <p>
+      <p>
         An attribute is a property or characteristic that describes an entity.
-    </p>
+      </p>
 
-    <ul>
-        <li>BOOK: Book_ID, Title, Author, Price</li>
-        <li>MEMBER: Member_ID, Name, Phone, Address</li>
-        <li>PUBLISHER: Pub_ID, Name, Address</li>
-    </ul>
+      <ul>
+        <li><span class="point-name">BOOK:</span> Book_ID, Title, Author, Price</li>
+        <li><span class="point-name">MEMBER:</span> Member_ID, Name, Phone, Address</li>
+        <li><span class="point-name">PUBLISHER:</span> Pub_ID, Name, Address</li>
+      </ul>
 
-    <p>
+      <p>
         In an ER diagram, an attribute is represented by an oval.
-    </p>
+      </p>
 
-    <div class="section-title">
+      <div class="section-title">
         3. Keys
-    </div>
+      </div>
 
-    <p>
+      <p>
         A key is an attribute that uniquely identifies each entity record.
-    </p>
+      </p>
 
-    <ul>
+      <ul>
         <li>Book_ID → Primary Key of BOOK</li>
         <li>Member_ID → Primary Key of MEMBER</li>
         <li>Pub_ID → Primary Key of PUBLISHER</li>
-    </ul>
+      </ul>
 
-    <p>
+      <p>
         In an ER diagram, key is shown by underlining the attribute name.
-    </p>
+      </p>
 
-    <div class="section-title">
+      <div class="section-title">
         4. Relationships
-    </div>
+      </div>
 
-    <p>
+      <p>
         A relationship shows how two or more entities are connected.
-    </p>
+      </p>
 
-    <p>
+      <p>
         <span class="relationship">BORROWS</span>
-    </p>
+      </p>
 
-    <ul>
+      <ul>
         <li>Connects MEMBER and BOOK.</li>
         <li>A member can borrow many books, and a book can be borrowed by many members over time.</li>
         <li>Cardinality: Many-to-Many (M:N)</li>
         <li>Relationship attributes: Issue_Date, Return_Date</li>
-    </ul>
+      </ul>
 
-    <p>
+      <p>
         <span class="relationship">PUBLISHED_BY</span>
-    </p>
+      </p>
 
-    <ul>
+      <ul>
         <li>Connects BOOK and PUBLISHER.</li>
         <li>One publisher can publish many books, while each book is published by one publisher.</li>
         <li>Cardinality: Many-to-One (N:1)</li>
-    </ul>
+      </ul>
 
-    <p>
+      <p>
         In an ER diagram, a relationship is represented by a diamond.
-    </p>
+      </p>
 
-</div>
+    </div>
 
 
-<!-- Q3 -->
-<div class="question-block">
+    <!-- ==================== QUESTION 3 ==================== -->
 
-    <div class="question">
+    <div class="question-block">
+
+      <div class="question">
         Q3. Assess the Concept of Relational Databases and Their Key Characteristics.
-    </div>
+      </div>
 
-    <p>
-        A Relational Database stores data in the form of tables. Each table contains rows and columns.
-        The relational model was introduced by E. F. Codd in 1970.
-    </p>
+      <p>
+        A Relational Database stores data in the form of tables. Each table contains rows and columns. The relational model was introduced by E. F. Codd in 1970.
+      </p>
 
-    <div class="section-title">
-        Example of Relational Database
-    </div>
+      <p>
+        <span class="point-name">Example of Relational Database</span>
+      </p>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q3.png" alt="Example of Relational Database">
-    </div>
+      </div>
 
-    <div class="section-title">
+      <div class="section-title">
         Key Characteristics
-    </div>
+      </div>
 
-    <ol>
-
+      <ol>
         <li>
-            <span class="point-name">Table-based Structure</span><br>
-            Data is organized in tables containing rows and columns.<br>
-            Example: STUDENT TABLE.
+          <span class="point-name">Table-based Structure</span><br>
+          Data is organized in tables containing rows and columns.<br>
+          Example: STUDENT TABLE.
         </li>
 
         <li>
-            <span class="point-name">Relation</span><br>
-            A table is called a relation.<br>
-            Example: STUDENT TABLE is a relation.
+          <span class="point-name">Relation</span><br>
+          A table is called a relation.<br>
+          Example: STUDENT TABLE is a relation.
         </li>
 
         <li>
-            <span class="point-name">Tuple</span><br>
-            A row is called a tuple or record.<br>
-            Example: 101 | Rahul | B.Sc. CS | 8.2 is one tuple.
+          <span class="point-name">Tuple</span><br>
+          A row is called a tuple or record.<br>
+          Example: 101 | Rahul | B.Sc. CS | 8.2 is one tuple.
         </li>
 
         <li>
-            <span class="point-name">Attribute</span><br>
-            A column is called an attribute or field.<br>
-            Example: ID, Name, Program, CGPA are attributes.
+          <span class="point-name">Attribute</span><br>
+          A column is called an attribute or field.<br>
+          Example: ID, Name, Program, CGPA are attributes.
         </li>
 
         <li>
-            <span class="point-name">Domain</span><br>
-            A domain specifies the allowed values or data type of an attribute.<br>
-            Example: CGPA contains numeric values.
+          <span class="point-name">Domain</span><br>
+          A domain specifies the allowed values or data type of an attribute.<br>
+          Example: CGPA contains numeric values.
         </li>
 
         <li>
-            <span class="point-name">Keys</span><br>
-            Keys identify records and help establish relationships between tables.<br>
-            Primary Key: uniquely identifies a record. ID can be the primary key in this table.<br>
-            Foreign Key: refers to the primary key of another table.
+          <span class="point-name">Keys</span><br>
+          Keys identify records and help establish relationships between tables.<br>
+          Primary Key: uniquely identifies a record. ID can be the primary key in this table.<br>
+          Foreign Key: refers to the primary key of another table.
         </li>
 
         <li>
-            <span class="point-name">Degree</span><br>
-            The number of columns in a relation is called its degree.<br>
-            Here, Degree = 4 (ID, Name, Program, CGPA).
+          <span class="point-name">Degree</span><br>
+          The number of columns in a relation is called its degree.<br>
+          Here, Degree = 4 (ID, Name, Program, CGPA).
         </li>
 
         <li>
-            <span class="point-name">Cardinality</span><br>
-            The number of rows in a relation is called its cardinality.<br>
-            Here, Cardinality = 3 because there are 3 student records.
+          <span class="point-name">Cardinality</span><br>
+          The number of rows in a relation is called its cardinality.<br>
+          Here, Cardinality = 3 because there are 3 student records.
         </li>
+      </ol>
 
-    </ol>
-
-    <div class="section-title">
+      <div class="section-title">
         Conclusion
+      </div>
+
+      <p>
+        A relational database organizes data into relations (tables) using attributes, tuples, domains, and keys. Degree and cardinality describe the structure of a relation.
+      </p>
+
     </div>
 
-    <p>
-        A relational database organizes data into relations (tables) using attributes, tuples,
-        domains, and keys. Degree and cardinality describe the structure of a relation.
-    </p>
 
-</div>
+    <!-- ==================== QUESTION 4 ==================== -->
 
-    <!-- Q4 -->
-<div class="question-block">
+    <div class="question-block">
 
-    <div class="question">
+      <div class="question">
         Q4. Explain the Concept of Transaction Management in a Database System.
-    </div>
+      </div>
 
-    <div class="section-title">
+      <div class="section-title">
         1. Meaning of Transaction Management
-    </div>
+      </div>
 
-    <p>
+      <p>
         Transaction Management is the process of managing database transactions so that they are completed correctly, safely, and reliably.
-    </p>
+      </p>
 
-    <p>
+      <p>
         A transaction is a single logical unit of work in a database. It follows an all-or-nothing approach.
-    </p>
+      </p>
 
-    <p>
+      <p>
         <span class="point-name">Example:</span>
-    </p>
+      </p>
 
-    <p>
+      <p>
         In a bank transfer of ₹5,000:
-    </p>
+      </p>
 
-    <ul>
+      <ul>
         <li>₹5,000 is debited from Account A.</li>
         <li>₹5,000 is credited to Account B.</li>
-    </ul>
+      </ul>
 
-    <p>
+      <p>
         Both operations must be completed. If an error occurs, the transaction should be cancelled to avoid incorrect data.
-    </p>
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         2. Diagram of Transaction States
-    </div>
+      </div>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q4.png" alt="Transaction States Diagram">
-    </div>
+      </div>
 
-    <p>
-        States shown in the diagram:
-    </p>
+      <p>
+        <span class="point-name">States shown in the diagram:</span>
+      </p>
 
-    <ul>
-        <li>Active: Transaction is being executed.</li>
-        <li>Committed: Transaction completed successfully and changes become permanent.</li>
-        <li>Failed: An error occurs during the transaction.</li>
-        <li>Aborted: Failed transaction is cancelled and its changes are undone.</li>
-    </ul>
+      <ul>
+        <li><span class="point-name">Active:</span> Transaction is being executed.</li>
+        <li><span class="point-name">Committed:</span> Transaction completed successfully and changes become permanent.</li>
+        <li><span class="point-name">Failed:</span> An error occurs during the transaction.</li>
+        <li><span class="point-name">Aborted:</span> Failed transaction is cancelled and its changes are undone.</li>
+      </ul>
 
-
-    <div class="section-title">
+      <div class="section-title">
         3. ACID Properties
-    </div>
+      </div>
 
-    <p>
-        A – Atomicity:<br>
+      <p>
+        <span class="point-name">A – Atomicity:</span><br>
         All operations of a transaction are completed, or none are completed.
-    </p>
+      </p>
 
-    <p>
-        C – Consistency:<br>
+      <p>
+        <span class="point-name">C – Consistency:</span><br>
         The database remains in a valid state before and after the transaction.
-    </p>
+      </p>
 
-    <p>
-        I – Isolation:<br>
+      <p>
+        <span class="point-name">I – Isolation:</span><br>
         Multiple transactions can run at the same time without interfering with each other.
-    </p>
+      </p>
 
-    <p>
-        D – Durability:<br>
+      <p>
+        <span class="point-name">D – Durability:</span><br>
         Once a transaction is committed, its changes remain permanent even after a system failure.
-    </p>
+      </p>
 
-    <p>
+      <p>
         ACID properties help maintain the integrity and consistency of the database.
-    </p>
+      </p>
 
-</div>
+    </div>
 
-<!-- Q5 -->
-<div class="question-block">
 
-    <div class="question">
+    <!-- ==================== QUESTION 5 ==================== -->
+
+    <div class="question-block">
+
+      <div class="question">
         Q5. Discuss the Concept of "View of Data" in a Database System with the Help of Three-Level Architecture.
-    </div>
+      </div>
 
-    <p>
-        View of Data means showing database information at different levels of abstraction.
-        It hides unnecessary details and allows users to see only the data they need.
-    </p>
+      <p>
+        View of Data means showing database information at different levels of abstraction. It hides unnecessary details and allows users to see only the data they need.
+      </p>
 
-    <p>
-        <span class="point-name">Three levels of Data Abstraction (ANSI/SPARC):</span>
-    </p>
+      <p>
+        Three levels of Data Abstraction (ANSI/SPARC):
+      </p>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q5.png" alt="Three-Level Data Abstraction Architecture">
-    </div>
+      </div>
 
-    <div class="section-title">
+      <div class="section-title">
         1. Levels of Data Abstraction
-    </div>
+      </div>
 
-    <p>
-        <span class="point-name">1. External Level (View Level)</span>
-    </p>
+      <ol>
+        <li>
+          <span class="point-name">External Level (View Level)</span><br>
+          Highest level of abstraction.<br>
+          Shows only the data required by a particular user or application.<br>
+          Different users can have different views.<br>
+          Example: A student sees marks, while an administrator sees student and fee details.
+        </li>
 
-    <ul>
-        <li>Highest level of abstraction.</li>
-        <li>Shows only the data required by a particular user or application.</li>
-        <li>Different users can have different views.</li>
-        <li>Example: A student sees marks, while an administrator sees student and fee details.</li>
-    </ul>
+        <li>
+          <span class="point-name">Conceptual Level (Logical Level)</span><br>
+          Describes the complete logical structure of the database.<br>
+          Shows what data is stored and the relationships between data.<br>
+          It does not describe how data is physically stored.
+        </li>
 
-    <p>
-        <span class="point-name">2. Conceptual Level (Logical Level)</span>
-    </p>
+        <li>
+          <span class="point-name">Internal Level (Physical Level)</span><br>
+          Lowest level of abstraction.<br>
+          Describes how data is actually stored in the computer.<br>
+          Includes files, indexes, pointers, and storage structures.
+        </li>
+      </ol>
 
-    <ul>
-        <li>Describes the complete logical structure of the database.</li>
-        <li>Shows what data is stored and the relationships between data.</li>
-        <li>It does not describe how data is physically stored.</li>
-    </ul>
-
-    <p>
-        <span class="point-name">3. Internal Level (Physical Level)</span>
-    </p>
-
-    <ul>
-        <li>Lowest level of abstraction.</li>
-        <li>Describes how data is actually stored in the computer.</li>
-        <li>Includes files, indexes, pointers, and storage structures.</li>
-    </ul>
-
-    <div class="section-title">
+      <div class="section-title">
         2. Schema and Instance
-    </div>
+      </div>
 
-    <ul>
-        <li>Schema: Overall logical design or structure of the database. It changes rarely.</li>
-        <li>Instance: Actual data stored in the database at a particular moment. It changes frequently.</li>
-    </ul>
+      <ul>
+        <li><span class="point-name">Schema:</span> Overall logical design or structure of the database. It changes rarely.</li>
+        <li><span class="point-name">Instance:</span> Actual data stored in the database at a particular moment. It changes frequently.</li>
+      </ul>
 
-    <div class="section-title">
+      <div class="section-title">
         3. Importance of Three-Level Architecture
-    </div>
+      </div>
 
-    <ul>
+      <ul>
         <li>Hides unnecessary database details.</li>
         <li>Provides different views for different users.</li>
         <li>Makes database management easier.</li>
         <li>Provides data independence.</li>
         <li>Changes at one level can be made with less effect on other levels.</li>
-    </ul>
+      </ul>
 
-</div>
-        
-   <!-- Q7 -->
-<div class="question-block">
+    </div>
 
-    <div class="question">
+
+    <!-- ==================== QUESTION 6 ==================== -->
+
+    <!-- Q6 will be added here later -->
+
+
+    <!-- ==================== QUESTION 7 ==================== -->
+
+    <div class="question-block">
+
+      <div class="question">
         Q7. Describe the Database Architecture (Client-Server, Centralized, Distributed) with a Suitable Diagram.
-    </div>
+      </div>
 
-    <p>
+      <p>
         Database Architecture describes how the database, DBMS, users, and applications are organized and connected.
-    </p>
+      </p>
 
-    <p>
+      <p>
         The three common architectures are Centralized, Client-Server, and Distributed Database Architecture.
-    </p>
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         1. Centralized Database Architecture
-    </div>
+      </div>
 
-    <p>
-        In a centralized database, the database and DBMS are located at one central server/system.
-        Users access the same central database.
-    </p>
+      <p>
+        In a centralized database, the database and DBMS are located at one central server/system. Users access the same central database.
+      </p>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q7-1.png" alt="Centralized Database Architecture">
-    </div>
+      </div>
 
-    <p>
-        Example: A college keeps all student records in one central database.
-    </p>
+      <p>
+        <span class="point-name">Example:</span> A college keeps all student records in one central database.
+      </p>
 
-    <p>
-        <span class="point-name">Main feature:</span>
-        Data is stored and managed at one central location.
-    </p>
+      <p>
+        <span class="point-name">Main feature:</span> Data is stored and managed at one central location.
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         2. Client-Server Architecture
-    </div>
+      </div>
 
-    <p>
-        In client-server architecture, the client sends requests to a database server.
-        The server processes the requests and returns the required data.
-    </p>
+      <p>
+        In client-server architecture, the client sends requests to a database server. The server processes the requests and returns the required data.
+      </p>
 
-    <div class="diagram">
-        <img src="q7-2.png" alt="Client-Server Architecture">
-    </div>
+      <div class="diagram">
+        <img src="q7-2.png" alt="Client-Server Database Architecture">
+      </div>
 
-    <p>
-        Example: A college marks portal where students use a web application to request their marks from the database server.
-    </p>
+      <p>
+        <span class="point-name">Example:</span> A college marks portal where students use a web application to request their marks from the database server.
+      </p>
 
-    <p>
-        <span class="point-name">Main feature:</span>
-        The client handles user interaction, while the server manages the database.
-    </p>
+      <p>
+        <span class="point-name">Main feature:</span> The client handles user interaction, while the server manages the database.
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         3. Distributed Database Architecture
-    </div>
+      </div>
 
-    <p>
-        In a distributed database, data is stored at multiple network-connected locations.
-        The locations work together as one database system.
-    </p>
+      <p>
+        In a distributed database, data is stored at multiple network-connected locations. The locations work together as one database system.
+      </p>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q7-3.png" alt="Distributed Database Architecture">
+      </div>
+
+      <p>
+        <span class="point-name">Example:</span> A bank maintains databases at different branches that are connected through a network.
+      </p>
+
+      <p>
+        <span class="point-name">Main feature:</span> Data is distributed across multiple locations but can be accessed as part of one database system.
+      </p>
+
     </div>
 
-    <p>
-        Example: A bank maintains databases at different branches that are connected through a network.
-    </p>
 
-    <p>
-        <span class="point-name">Main feature:</span>
-        Data is distributed across multiple locations but can be accessed as part of one database system.
-    </p>
+    <!-- ==================== QUESTION 8 ==================== -->
 
+    <div class="question-block">
 
-    <div class="section-title">
-        4. Comparison
-    </div>
-
-    <table class="comparison-table">
-        <tr>
-            <th>Architecture</th>
-            <th>Data Location</th>
-            <th>Main Idea</th>
-        </tr>
-
-        <tr>
-            <td>Centralized</td>
-            <td>One location</td>
-            <td>Single central database</td>
-        </tr>
-
-        <tr>
-            <td>Client-Server</td>
-            <td>Server</td>
-            <td>Clients request data from server</td>
-        </tr>
-
-        <tr>
-            <td>Distributed</td>
-            <td>Multiple locations</td>
-            <td>Data distributed across network</td>
-        </tr>
-    </table>
-
-</div>
-
-<!-- Q8 -->
-<div class="question-block">
-
-    <div class="question">
+      <div class="question">
         Q8. What are Data Models? Discuss the Evolution of Data Models from Hierarchical to Relational and Object-Oriented Models.
-    </div>
+      </div>
 
-    <p>
+      <div class="section-title">
+        1. Meaning of Data Model
+      </div>
+
+      <p>
         A data model is a collection of concepts and notations used to describe:
-    </p>
+      </p>
 
-    <ul>
+      <ul>
         <li>Data</li>
         <li>Relationships between data</li>
         <li>Constraints on data</li>
-    </ul>
+      </ul>
 
-    <p>
+      <p>
         It provides a common language for database designers, developers, and users to understand how data is organized.
-    </p>
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         2. Evolution of Data Models
-    </div>
+      </div>
 
-    <div class="diagram">
+      <div class="diagram">
         <img src="q8.png" alt="Evolution of Data Models">
-    </div>
+      </div>
 
-    <p>
-        Data models evolved over time to handle increasingly complex data and requirements.
-    </p>
+      <p>
+        Data models evolved over time to handle increasingly complex data and requirements
+      </p>
 
-
-    <div class="section-title">
+      <div class="section-title">
         3. Major Data Models
+      </div>
+
+      <ol>
+        <li>
+          <span class="point-name">File-Based Model</span><br>
+          Used in the early 1960s.<br>
+          Data was stored in separate files.<br>
+          Managing relationships between files was difficult.
+        </li>
+
+        <li>
+          <span class="point-name">Hierarchical Model</span><br>
+          Developed during the 1960s–1970s.<br>
+          Organizes data in a tree-like structure.<br>
+          Supports parent-child relationships.<br>
+          One parent can have many children.
+        </li>
+
+        <li>
+          <span class="point-name">Network Model</span><br>
+          Developed during the 1960s–1970s.<br>
+          Represents data using a network of relationships.<br>
+          Supports more complex relationships than the hierarchical model.
+        </li>
+
+        <li>
+          <span class="point-name">Relational Model</span><br>
+          Introduced by E. F. Codd in 1970.<br>
+          Organizes data into tables consisting of rows and columns.<br>
+          Uses keys and relationships to connect tables.<br>
+          Became the dominant traditional database model.
+        </li>
+
+        <li>
+          <span class="point-name">Object-Oriented Model</span><br>
+          Became important during the 1980s–1990s.<br>
+          Represents data as objects, combining data and behavior.<br>
+          Useful for complex data and object-oriented applications.
+        </li>
+      </ol>
+
     </div>
 
 
-    <ol>
+  </div>
 
-        <li>
-            <span class="point-name">File-Based Model</span>
-            <ul>
-                <li>Used in the early 1960s.</li>
-                <li>Data was stored in separate files.</li>
-                <li>Managing relationships between files was difficult.</li>
-            </ul>
-        </li>
-
-
-        <li>
-            <span class="point-name">Hierarchical Model</span>
-            <ul>
-                <li>Developed during the 1960s–1970s.</li>
-                <li>Organizes data in a tree-like structure.</li>
-                <li>Supports parent-child relationships.</li>
-                <li>One parent can have many children.</li>
-            </ul>
-        </li>
-
-
-        <li>
-            <span class="point-name">Network Model</span>
-            <ul>
-                <li>Developed during the 1960s–1970s.</li>
-                <li>Represents data using a network of relationships.</li>
-                <li>Supports more complex relationships than the hierarchical model.</li>
-            </ul>
-        </li>
-
-
-        <li>
-            <span class="point-name">Relational Model</span>
-            <ul>
-                <li>Introduced by E. F. Codd in 1970.</li>
-                <li>Organizes data into tables consisting of rows and columns.</li>
-                <li>Uses keys and relationships to connect tables.</li>
-                <li>Became the dominant traditional database model.</li>
-            </ul>
-        </li>
-
-
-        <li>
-            <span class="point-name">Object-Oriented Model</span>
-            <ul>
-                <li>Became important during the 1980s–1990s.</li>
-                <li>Represents data as objects, combining data and behavior.</li>
-                <li>Useful for complex data and object-oriented applications.</li>
-            </ul>
-        </li>
-
-    </ol>
-
-</div>
-        
 </body>
-</html>
+    </html>
