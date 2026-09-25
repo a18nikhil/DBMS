@@ -1,143 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* =========================================================
+   PERMANENT DBMS HANDWRITTEN EXAM-NOTES CSS
+   ========================================================= */
 
-  <title>DBMS Study Notes</title>
+* {
+  box-sizing: border-box;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+body {
+  margin: 0;
+  padding: 30px 0;
+  background: #e5e5e5;
 
-  <style>
+  /* Handwritten appearance */
+  color: #0645ad;
+  font-family: "Kalam", cursive;
 
-    /* ==================== MAIN PAGE DESIGN ==================== */
+  font-size: 21px;
+  line-height: 1.8;
+  text-align: left;
+}
 
-    * {
-      box-sizing: border-box;
-    }
 
-    body {
-      margin: 0;
-      padding: 30px 0;
-      background: #e5e5e5;
-      color: #0645ad;
-      font-family: "Kalam", cursive;
-      font-size: 21px;
-      line-height: 1.8;
-    }
+/* =========================================================
+   MAIN PAPER
+   ========================================================= */
 
-    .paper {
-      max-width: 950px;
-      margin: auto;
-      padding: 45px 65px 70px 65px;
-      background-color: #fffef9;
-      background-image: linear-gradient(
-        to bottom,
-        transparent 34px,
-        rgba(80, 130, 190, 0.15) 35px
-      );
-      background-size: 100% 35px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-      border-radius: 2px;
-    }
+.paper {
+  width: 100%;
+  max-width: 950px;
 
-    .question-block {
-      padding-bottom: 40px;
-      margin-bottom: 45px;
-      border-bottom: 1px solid rgba(70, 115, 175, 0.14);
-    }
+  margin: 0 auto;
 
-    .question-block:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+  /* Space between paper edge and writing */
+  padding: 45px 65px 70px 65px;
 
-    .question {
-      font-size: 29px;
-      line-height: 1.55;
-      margin-bottom: 20px;
-      text-decoration: underline;
-    }
+  /* Paper colour */
+  background-color: #fffef9;
 
-    .section-title {
-      font-size: 25px;
-      line-height: 1.6;
-      margin-top: 22px;
-      margin-bottom: 10px;
-      text-decoration: underline;
-    }
+  /* Light blue ruled-paper lines */
+  background-image: linear-gradient(
+    to bottom,
+    transparent 37px,
+    rgba(80, 130, 190, 0.15) 38px
+  );
 
-    p {
-      margin-top: 8px;
-      margin-bottom: 14px;
-    }
+  background-size: 100% 38px;
 
-    ol,
-    ul {
-      padding-left: 32px;
-      margin-top: 8px;
-      margin-bottom: 15px;
-    }
+  /* Very subtle paper separation from screen */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 
-    li {
-      margin-bottom: 12px;
-    }
+  border-radius: 2px;
+}
 
-    .point-name,
-    .relationship {
-      text-decoration: underline;
-    }
 
-    .diagram {
-      width: 100%;
-      text-align: center;
-      margin: 14px auto 24px;
-      padding: 5px 0;
-    }
+/* =========================================================
+   EACH QUESTION
+   ========================================================= */
 
-    .diagram img {
-      display: block;
-      width: 100%;
-      max-width: 720px;
-      height: auto;
-      margin: auto;
-    }
+.question-block {
+  padding-bottom: 40px;
+  margin-bottom: 45px;
 
-    /* ==================== MOBILE DESIGN ==================== */
+  /* Very subtle separation between questions */
+  border-bottom: 1px solid rgba(70, 115, 175, 0.14);
+}
 
-    @media (max-width: 700px) {
+.question-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 
-      body {
-        padding: 0;
-        font-size: 17px;
-        line-height: 1.8;
-      }
 
-      .paper {
-        width: 100%;
-        padding: 30px 25px 50px 25px;
-        box-shadow: none;
-      }
+/* =========================================================
+   QUESTION HEADING
+   ========================================================= */
 
-      .question {
-        font-size: 21px;
-        line-height: 1.55;
-      }
+.question {
+  font-size: 29px;
+  line-height: 1.55;
 
-      .section-title {
-        font-size: 19px;
-      }
+  margin-bottom: 20px;
 
-      ol,
-      ul {
-        padding-left: 26px;
-      }
-    }
+  /* Underline instead of bold */
+  text-decoration: underline;
+}
 
-  </style>
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-title {
+  font-size: 25px;
+  line-height: 1.6;
+
+  margin-top: 22px;
+  margin-bottom: 10px;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   NORMAL PARAGRAPHS
+   ========================================================= */
+
+p {
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   ORDERED / UNORDERED LISTS
+   ========================================================= */
+
+ol,
+ul {
+  padding-left: 32px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   SMALL EMPHASIS
+   ========================================================= */
+
+/* Used for names such as:
+   Table-based Structure
+   Keys
+   Atomicity
+   etc.
+*/
+
+.point-name,
+.relationship {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   DIAGRAMS
+   ========================================================= */
+
+.diagram {
+  width: 100%;
+  text-align: center;
+
+  margin: 14px auto 24px;
+  padding: 5px 0;
+}
+
+.diagram img {
+  display: block;
+
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+
+  margin: auto;
+}
+
+
+/* =========================================================
+   MOBILE / PHONE VIEW
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 0;
+
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .paper {
+    width: 100%;
+    max-width: none;
+
+    /* Smaller side spacing on phones */
+    padding: 30px 25px 50px 25px;
+
+    box-shadow: none;
+
+    /* Ruled lines match mobile text size */
+    background-size: 100% 31px;
+
+    background-image: linear-gradient(
+      to bottom,
+      transparent 30px,
+      rgba(80, 130, 190, 0.15) 31px
+    );
+  }
+
+
+  /* Question heading on phone */
+  .question {
+    font-size: 21px;
+    line-height: 1.55;
+  }
+
+
+  /* Section heading on phone */
+  .section-title {
+    font-size: 19px;
+  }
+
+
+  /* Lists on phone */
+  ol,
+  ul {
+    padding-left: 26px;
+  }
+}
+</style>
+
 </head>
 
 <body>
