@@ -271,7 +271,7 @@
       </ul>
 
       <p>
-        <span class="point-name">Example</span>
+        <span class="point-name">Example:</span>
       </p>
 
       <p>
@@ -807,8 +807,132 @@
 
     </div>
 
+    <!-- QUESTION 10 -->
 
+<div class="question-block">
+
+  <div class="question">
+    Q10. Explain the Logical View of Data and the Concept of Keys in a Relational Database with Examples.
   </div>
+
+  <div class="section-title">
+    1. Logical View of Data
+  </div>
+
+  <p>
+    The logical view of data describes how data is organized in a database as
+    tables, rows, and columns, without showing how the data is physically stored
+    on disk.
+  </p>
+
+  <p>
+    For example, in a college application, users can see student IDs, names,
+    marks, and other required information. They do not need to know where or
+    how these records are physically stored.
+  </p>
+
+
+  <div class="section-title">
+    2. Concept of Keys in a Relational Database
+  </div>
+
+  <p>
+    A key is an attribute or a set of attributes used to uniquely identify a
+    record in a relational table and to establish relationships between tables.
+  </p>
+
+  <p>
+    Consider the following STUDENT table:
+  </p>
+
+  <!-- Q10-1 PNG: STUDENT TABLE -->
+  <div class="diagram">
+    <img src="q10-1.png" alt="STUDENT Table">
+  </div>
+
+
+  <ol>
+
+    <li>
+      <span class="point-name">Super Key</span><br>
+      A Super Key is an attribute or combination of attributes that can uniquely
+      identify a record in a table.<br>
+      Example: Student_ID can uniquely identify a student. A combination such as
+      Student_ID + Name can also uniquely identify a student. Therefore, both
+      are Super Keys.
+    </li>
+
+
+    <li>
+      <span class="point-name">Candidate Key</span><br>
+      A Candidate Key is a minimal Super Key, meaning it uniquely identifies a
+      record without any unnecessary attribute.<br>
+      Example: If both Student_ID and Email are unique, then Student_ID and
+      Email can be Candidate Keys.
+    </li>
+
+
+    <li>
+      <span class="point-name">Primary Key</span><br>
+      A Primary Key is the Candidate Key selected as the main identifier of
+      records in a table. It cannot contain NULL values.<br>
+      Example: Student_ID can be selected as the Primary Key of the STUDENT
+      table.
+    </li>
+
+
+    <li>
+      <span class="point-name">Alternate Key</span><br>
+      An Alternate Key is a Candidate Key that is not selected as the Primary
+      Key.<br>
+      Example: If Student_ID is selected as the Primary Key and Email is another
+      Candidate Key, then Email becomes the Alternate Key.
+    </li>
+
+
+    <li>
+      <span class="point-name">Foreign Key</span><br>
+      A Foreign Key is an attribute in one table that refers to the Primary Key
+      of another table. It is used to establish a relationship between tables.
+    </li>
+
+  </ol>
+
+
+  <!-- Q10-2 PNG: FOREIGN KEY RELATIONSHIP -->
+  <div class="diagram">
+    <img src="q10-2.png" alt="Foreign Key Relationship">
+  </div>
+
+  <p>
+    Here, Student_ID in the ENROLLMENT table refers to Student_ID in the
+    STUDENT table.
+  </p>
+
+
+  <ol start="6">
+
+    <li>
+      <span class="point-name">Composite Key</span><br>
+      A Composite Key is a key consisting of two or more attributes that
+      together uniquely identify a record.
+    </li>
+
+  </ol>
+
+
+  <!-- Q10-3 PNG: COMPOSITE KEY -->
+  <div class="diagram">
+    <img src="q10-3.png" alt="Composite Key Example">
+  </div>
+
+  <p>
+    Here, Student_ID alone is not unique and Course_ID alone is not unique.
+    Together, Student_ID and Course_ID uniquely identify an enrollment record.
+    Therefore, they form a Composite Key.
+  </p>
+
+</div>
 
 </body>
     </html>
